@@ -7,7 +7,7 @@ http://stackoverflow.com/questions/22205655/jooq-custom-type-with-mockresult-thr
 
 https://github.com/jOOQ/jOOQ/commit/ce8ad8d9305182a35a3d353c6056067fb7ef555d
 
-To reproduce:
+To rebuild:
 
 Install Vagrant (http://www.vagrantup.com/downloads.html)
 
