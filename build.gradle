@@ -1,0 +1,32 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    group = 'name.benjaminAbbitt.potentialJooqBugCustomTypesMockJDBC'
+    version = '0.1-SNAPSHOT'
+
+}
+
+subprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+idea {
+    module {
+        iml {
+            withXml {
+                IdeaEnricher.updateWebFacet(subprojects.findAll{it.name == 'web'}.first(), it.asNode())
+            }
+        }
+    }
+    project {
+        ipr {
+            withXml {
+                IdeaEnricher.updateWebArtifacts(subprojects.findAll{it.name == 'web'}.first(), it.asNode())
+                IdeaEnricher.updateBuildOutputFolderForGradle(this.project, it.asNode())
+            }
+        }
+    }
+}
+
